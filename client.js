@@ -40,4 +40,40 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+for (i = 0; i < employees.length; i++){
+  console.log(employees[i]);
+  
+}
+
+function createEmployee( employee ){
+  let bounusPercentage = calculateBonus( employee );
+    let totalBonus = bounusPercentage * employee.annualSalary;
+    let totalCompensation = Number(employee.annualSalary) + totalBonus;
+  
+  
+    let newEmployee = {
+      name: employee.name,
+      bounusPercentage: bounusPercentage,
+      totalCompensation: totalCompensation,
+      totalBonus: totalBonus
+    }
+    return newEmployee;
+} // end createEmployee 
+
+function calculateBonus( employee ){
+  let bounusPercentage = 0;
+  if (employee.reviewRating <= 2){
+     bounusPercentage = 0;
+} else if (employee.reviewRating = 3){
+     bounusPercentage = .04;
+} else if (employee.reviewRating = 4){
+   bounusPercentage = .06;
+} else if (employee.reviewRating = 5){
+   bounusPercentage = .10;
+}
+return bounusPercentage;
+}
+
 console.log( employees );
+console.log(createEmployee( employees[0] ));
+
